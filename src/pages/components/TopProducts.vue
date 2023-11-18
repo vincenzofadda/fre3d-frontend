@@ -69,8 +69,8 @@ function selectCategory(category) {
 </script>
 
 <template>
-  <div mt-25 w-full flex flex-col>
-    <h1 class="text-gradient text-underline mb-5 text-center text-5xl font-bold tracking-wide">
+  <div w-full flex flex-col>
+    <h1 class="text-underline mb-5 text-center text-5xl font-bold tracking-wide text-white">
       Top Produtos
     </h1>
 
@@ -86,7 +86,7 @@ function selectCategory(category) {
       </button>
     </div>
 
-    <div grid grid-cols-12 mt-10 gap-4 gap-x-4>
+    <div grid grid-cols-12 mt-10 gap-6>
       <ProductCard
         v-for="product in products"
         :key="product"

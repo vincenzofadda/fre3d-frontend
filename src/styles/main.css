@@ -5,3 +5,8 @@ body,
   margin: 0;
   padding: 0;
 }
+.text-gradient {
+  background: linear-gradient(90deg, #60429f 0%, #A259FF 50%, #60429f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

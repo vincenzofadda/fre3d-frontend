@@ -5,7 +5,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 defineOptions({
   name: 'Navbar',
 })
-// const router = useRouter()
+const router = useRouter()
 </script>
 
 <template>
@@ -21,7 +21,10 @@ defineOptions({
         Carrinho
       </button>
 
-      <button class="hover:border-primary hover:bg-primary border border-white rounded-lg px-6 py-2 text-white transition">
+      <button
+        class="hover:border-primary hover:bg-primary border border-white rounded-lg px-6 py-2 text-white transition"
+        @click="router.push('/auth/login')"
+      >
         Entrar
       </button>
     </div>

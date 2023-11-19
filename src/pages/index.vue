@@ -2,6 +2,7 @@
 import HomeBanner from './components/HomeBanner.vue'
 import TopProducts from './components/TopProducts.vue'
 import TopCreators from './components/TopCreators.vue'
+import StartSelling from './components/StartSelling.vue'
 
 defineOptions({
   name: 'InitialPage',
@@ -15,5 +16,6 @@ defineOptions({
     <HomeBanner />
     <TopProducts />
     <TopCreators />
+    <StartSelling />
   </div>
 </template>

@@ -69,7 +69,7 @@ function selectCategory(category) {
 </script>
 
 <template>
-  <div w-full flex flex-col>
+  <div w-full flex flex-col items-center justify-center>
     <h1 class="text-underline mb-5 text-center text-5xl font-bold tracking-wide text-white">
       Top Produtos
     </h1>
@@ -93,5 +93,9 @@ function selectCategory(category) {
         :product="product"
       />
     </div>
+
+    <button class="hover:bg-primary hover:border-primary mt-10 border border-white rounded-full bg-transparent px-20 py-2 text-xl font-bold uppercase text-white transition">
+      Ver Mais
+    </button>
   </div>
 </template>

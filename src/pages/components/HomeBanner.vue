@@ -4,7 +4,7 @@ import ScrollDownAnimation from '../../assets/scroll-down-animation.gif'
 </script>
 
 <template>
-  <div mb-40 w-full flex flex-col>
+  <div mb-20 w-full flex flex-col>
     <div w-full flex items-center justify-between>
       <!-- Banner Content -->
       <div class="z-10 text-left text-white">

@@ -10,7 +10,14 @@ async function signIn() {
 </script>
 
 <template>
-  <div h-100vh w-full flex items-center justify-start px-20>
+  <div relative h-100vh w-full flex items-center justify-start px-20>
+    <router-link
+      absolute left-5 top-5 h-10 w-10 rounded-full pa-5 text-2xl text-white
+      to="/"
+    >
+      <div i-carbon-arrow-left />
+    </router-link>
+
     <div class="w-8/10 flex flex-col rounded-xl bg-white px-15 py-10 lg:w-1/2">
       <span class="text-gradient mb-5 text-3xl font-bold tracking-wide">Entrar</span>
       <input

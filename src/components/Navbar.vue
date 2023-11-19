@@ -10,10 +10,12 @@ const router = useRouter()
 
 <template>
   <nav class="flex items-center justify-between px-10 py-6 text-white">
-    <h1 class="flex gap-x-2 text-3xl font-bold">
-      <div i-carbon-3d-cursor text-2xl />
-      FRE3D
-    </h1>
+    <router-link to="/">
+      <h1 class="flex gap-x-2 text-3xl font-bold">
+        <div i-carbon-3d-cursor text-2xl />
+        FRE3D
+      </h1>
+    </router-link>
 
     <div flex items-center gap-x-4>
       <button class="hover:text-primary flex gap-x-2 px-6 py-2 text-white transition">

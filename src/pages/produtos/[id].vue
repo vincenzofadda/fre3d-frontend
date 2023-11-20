@@ -6,13 +6,13 @@
   <div mt-10 min-h-100vh flex flex-col px-10>
     <div w-full flex gap-x-5>
       <div class="min-h-80vh min-w-1/2 flex flex-col items-center justify-start gap-y-5">
-        <div class="bg-primary h-8/10 w-full flex items-center justify-center rounded-xl">
+        <div class="h-8/10 w-full flex items-center justify-center rounded-xl bg-primary">
           produto images/ 3D model
         </div>
         <div w-full flex gap-x-5>
           <div
             v-for="i in 5" :key="i"
-            class="bg-primary h-75px w-75px flex items-center justify-center rounded-xl text-sm"
+            class="h-75px w-75px flex items-center justify-center rounded-xl bg-primary text-sm"
           >
             imagem {{ i }}
           </div>
@@ -22,7 +22,7 @@
       <div flex grow flex-col>
         <h1 text-3xl>
           Product name -
-          <span class="text-gradient text-underline mb-5 text-3xl font-bold tracking-wide">R$ 99.99</span>
+          <span class="text-gradient mb-5 text-3xl font-bold tracking-wide text-underline">R$ 99.99</span>
         </h1>
         <p class="text-md mb-5 mt-1 text-[#858584]">
           Criado por João Victor
@@ -47,7 +47,7 @@
         </div>
 
         <button
-          bg-primary my-5 w-fit rounded-lg px-4 py-2 font-bold text-white
+          my-5 w-fit rounded-lg bg-primary px-4 py-2 font-bold text-white
         >
           + Adicionar ao carrinho
         </button>

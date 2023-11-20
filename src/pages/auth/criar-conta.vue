@@ -40,7 +40,7 @@ async function signUp() {
       >
 
       <button
-        bg-primary my-5 rounded-lg px-4 py-2 font-bold text-white
+        my-5 rounded-lg bg-primary px-4 py-2 font-bold text-white
         @click="signUp()"
       >
         Criar

@@ -9,10 +9,11 @@ interface Props {
   }
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
 
+const router = useRouter()
 function openProduct() {
-
+  router.push(`/produtos/${props.product.id}`)
 }
 </script>
 

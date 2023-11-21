@@ -1,11 +1,54 @@
 <script setup>
+import axios from 'axios'
+import { API_URL } from '../../config'
+import { useUserStore } from '../../stores/user'
+
+const router = useRouter()
+const userStore = useUserStore()
+
+const loading = ref(false)
+const showPassword = ref(false)
+
 const loginData = ref({
   email: '',
   password: '',
 })
 
+function toggleShowPassword() {
+  showPassword.value = !showPassword.value
+}
+
 async function signIn() {
-//   const { data } = await axios.post(`${AUTH_API_URL}/token`, { ...token.value })
+  loading.value = true
+  axios.post(`${API_URL}/login`, loginData.value)
+    .then((response) => {
+      loading.value = false
+      userStore.setUser(response.data.user)
+      userStore.setToken(response.data.accessToken)
+
+      router.push('/produtos')
+    })
+    .catch((err) => {
+      console.log(err)
+      loading.value = false
+      const defaultMessage = 'Algo de errado aconteceu.'
+      let errorMessage
+
+      if (err.response && err.response.data) {
+        const { message } = err.response.data
+
+        if (message)
+          errorMessage = Array.isArray(message) ? message[0] : message
+      }
+
+      const text = errorMessage || defaultMessage
+      notify({
+        type: 'error',
+        title: 'Oops!',
+        text,
+        group: 'notifications',
+      }, 8000)
+    })
 }
 </script>
 
@@ -26,25 +69,37 @@ async function signIn() {
         type="email"
         placeholder="E-mail"
         required
-        class="mb-5 border border-gray-300 rounded-md bg-white p-2"
+        class="mb-5 border border-gray-300 rounded-md bg-white p-2 text-black"
       >
-      <input
-        v-model="loginData.password"
-        name="password"
-        placeholder="Senha"
-        type="password"
-        required
-        class="border border-gray-300 rounded-md bg-white p-2"
-      >
+
+      <div flex items-center justify-between border border-gray-300 rounded-md bg-white text-black>
+        <input
+          v-model="loginData.password"
+          name="password"
+          placeholder="Senha"
+          :type="showPassword ? 'text' : 'password'"
+          required grow p-2 outline-none
+        >
+        <button mr-4 hover:text-primary @click="toggleShowPassword">
+          <div :class="showPassword ? 'i-carbon-view-off' : 'i-carbon-view'" />
+        </button>
+      </div>
+
       <router-link mb-5 mt-2 text-right text-sm text-black to="/auth/criar-conta">
         Esqueceu a sua senha? <span text-primary text-underline underline-offset-2> Recupere aqui!</span>
       </router-link>
 
       <button
-        bg-primary mb-5 rounded-lg px-4 py-2 font-bold text-white
+        mb-5 flex items-center justify-center rounded-lg bg-primary px-4 py-2 font-bold text-white
+        :disabled="loading"
         @click="signIn()"
       >
-        Entrar
+        <LoadingSpinner
+          v-if="loading"
+          :size="['w-5', 'h-5']"
+          border="border-4"
+        />
+        <span v-else>Entrar</span>
       </button>
 
       <router-link text-center text-black to="/auth/criar-conta">

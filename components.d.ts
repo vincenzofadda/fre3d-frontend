@@ -7,7 +7,9 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    LoadingSpinner: typeof import('./src/components/LoadingSpinner.vue')['default']
     Navbar: typeof import('./src/components/Navbar.vue')['default']
+    Notifications: typeof import('./src/components/Notifications.vue')['default']
     RotatingCard: typeof import('./src/components/RotatingCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

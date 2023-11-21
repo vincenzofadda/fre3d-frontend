@@ -46,6 +46,15 @@ function toggle3D() {
   active3D.value = !active3D.value
 }
 
+function addToCart() {
+  // notify({
+  //   type: 'success',
+  //   title: 'app.locale-update.title',
+  //   text: 'app.locale-update.text',
+  //   group: 'notifications',
+  // }, 8000)
+}
+
 onMounted(() => {
   getProduct()
 })
@@ -94,6 +103,7 @@ onMounted(() => {
 
           <button
             class="my-5 w-fit rounded-lg bg-primary px-4 py-2 font-bold text-white"
+            @click="addToCart()"
           >
             + Adicionar ao carrinho
           </button>

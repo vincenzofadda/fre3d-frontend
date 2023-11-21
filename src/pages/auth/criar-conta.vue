@@ -1,11 +1,56 @@
 <script setup>
+import axios from 'axios'
+import { API_URL } from '../../config'
+
+const router = useRouter()
+const loading = ref(false)
+const showPassword = ref(false)
+
 const signUpData = ref({
+  name: '',
   email: '',
   password: '',
+  address: '',
 })
 
+function toggleShowPassword() {
+  showPassword.value = !showPassword.value
+}
+
 async function signUp() {
-//   const { data } = await axios.post(`${AUTH_API_URL}/token`, { ...token.value })
+  loading.value = true
+  axios.post(`${API_URL}/user`, signUpData.value)
+    .then(() => {
+      loading.value = false
+      notify({
+        type: 'success',
+        title: 'Tudo certo!',
+        text: 'Conta criada com sucesso!',
+        group: 'notifications',
+      }, 8000)
+      router.push('/auth/login')
+      // products.value = response.data
+    })
+    .catch((err) => {
+      loading.value = false
+      const defaultMessage = 'Algo de errado aconteceu.'
+      let errorMessage
+
+      if (err.response && err.response.data) {
+        const { message } = err.response.data
+
+        if (message)
+          errorMessage = Array.isArray(message) ? message[0] : message
+      }
+
+      const text = errorMessage || defaultMessage
+      notify({
+        type: 'error',
+        title: 'Oops!',
+        text,
+        group: 'notifications',
+      }, 8000)
+    })
 }
 </script>
 
@@ -18,7 +63,7 @@ async function signUp() {
         name="name"
         placeholder="Nome"
         required
-        class="mb-5 border border-gray-300 rounded-md bg-white p-2"
+        class="mb-5 border border-gray-300 rounded-md bg-white p-2 text-black"
       >
 
       <input
@@ -27,23 +72,33 @@ async function signUp() {
         type="email"
         placeholder="E-mail"
         required
-        class="mb-5 border border-gray-300 rounded-md bg-white p-2"
+        class="mb-5 border border-gray-300 rounded-md bg-white p-2 text-black"
       >
 
-      <input
-        v-model="signUpData.password"
-        name="password"
-        placeholder="Senha"
-        type="password"
-        required
-        class="border border-gray-300 rounded-md bg-white p-2"
-      >
+      <div flex items-center justify-between border border-gray-300 rounded-md bg-white text-black>
+        <input
+          v-model="signUpData.password"
+          name="password"
+          placeholder="Senha"
+          :type="showPassword ? 'text' : 'password'"
+          required grow p-2 outline-none
+        >
+        <button mr-4 hover:text-primary @click="toggleShowPassword">
+          <div :class="showPassword ? 'i-carbon-view-off' : 'i-carbon-view'" />
+        </button>
+      </div>
 
       <button
-        my-5 rounded-lg bg-primary px-4 py-2 font-bold text-white
+        my-5 flex justify-center rounded-lg bg-primary px-4 py-2 font-bold text-white
+        :disabled="loading"
         @click="signUp()"
       >
-        Criar
+        <LoadingSpinner
+          v-if="loading"
+          :size="['w-5', 'h-5']"
+          border="border-4"
+        />
+        <span v-else>Criar</span>
       </button>
 
       <router-link text-center text-black to="/auth/login">

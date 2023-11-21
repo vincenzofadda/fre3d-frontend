@@ -7,10 +7,12 @@ interface Props {
     basePrice: string
     description: string
   }
+  customGridClasses?: string
 }
 
 const props = defineProps<Props>()
 
+const gridClasses = props.customGridClasses ?? 'col-span-12 lg:col-span-3 md:col-span-6'
 const router = useRouter()
 function openProduct() {
   router.push(`/produtos/${props.product.id}`)
@@ -19,7 +21,8 @@ function openProduct() {
 
 <template>
   <div
-    class="col-span-12 cursor-pointer rounded-xl bg-[#222222] px-6 py-6 lg:col-span-3 md:col-span-6"
+    class="cursor-pointer rounded-xl bg-[#222222] px-6 py-6"
+    :class="gridClasses"
     @click="openProduct()"
   >
     <div text-white>

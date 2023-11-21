@@ -7,7 +7,7 @@ const loadingProducts = ref(true)
 const loadingCategories = ref(true)
 
 const categories = ref([])
-const selectedCategory = ref('Personagens')
+const selectedCategory = ref('')
 
 const products = ref([])
 

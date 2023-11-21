@@ -8,6 +8,8 @@ const showNavbar = computed(() => !disabledNavbarRoutes.includes(route.path))
 
 <template>
   <main class="font-poppins min-h-100vh bg-black text-white">
+    <Notifications />
+
     <Navbar v-if="showNavbar" />
     <RouterView />
   </main>

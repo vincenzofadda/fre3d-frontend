@@ -3,6 +3,7 @@ import axios from 'axios'
 import { API_URL } from '../../config'
 import ProductCard from './ProductCard.vue'
 
+const router = useRouter()
 const loadingProducts = ref(true)
 const loadingCategories = ref(true)
 
@@ -48,11 +49,11 @@ onMounted(() => {
       Top Produtos
     </h1>
 
-    <div v-if="loadingCategories" mt-5 flex items-center justify-center gap-x-4>
+    <div v-if="loadingCategories" mt-5 flex flex-wrap items-center justify-center gap-x-4>
       <div
         v-for="i in 6"
         :key="i"
-        class="min-w-150px border border-white rounded-full bg-[#222222] px-4 py-8"
+        class="min-w-150px grow border border-white rounded-full bg-[#222222] px-4 py-8"
       />
     </div>
 
@@ -60,7 +61,7 @@ onMounted(() => {
       <button
         v-for="category in categories"
         :key="category.id"
-        class="min-w-150px border border-white rounded-full px-4 py-2 text-lg tracking-wide text-white hover:bg-primary"
+        class="min-w-150px whitespace-nowrap border border-white rounded-full px-4 py-2 text-lg tracking-wide text-white hover:bg-primary"
         :class="{ 'bg-primary text-white !border-primary': category.id === selectedCategory }"
         @click="selectCategory(category)"
       >
@@ -86,7 +87,11 @@ onMounted(() => {
       />
     </div>
 
-    <button v-if="!loadingProducts" class="mt-10 border border-white rounded-full bg-transparent px-20 py-2 text-xl font-bold uppercase text-white transition hover:border-primary hover:bg-primary">
+    <button
+      v-if="!loadingProducts"
+      class="mt-10 border border-white rounded-full bg-transparent px-20 py-2 text-xl font-bold uppercase text-white transition hover:border-primary hover:bg-primary"
+      @click="router.push('/produtos')"
+    >
       Ver Mais
     </button>
   </div>

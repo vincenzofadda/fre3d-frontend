@@ -16,19 +16,19 @@ import ScrollDownAnimation from '../../assets/scroll-down-animation.gif'
         </h2>
 
         <p class="mb-8 mt-4">
-          Molde o Futuro com Sua Criatividade – Venha ser <span class="text-gradient text-underline ml-1 text-2xl font-bold !underline-offset-5px">FRE3D!</span>
+          Molde o Futuro com Sua Criatividade – Venha ser <span class="text-gradient ml-1 text-2xl font-bold text-underline !underline-offset-5px">FRE3D!</span>
         </p>
         <div class="justify-lefts flex space-x-4">
           <button class="rounded-lg bg-purple-600 px-6 py-2 font-bold uppercase transition hover:bg-purple-700">
             Explorar
           </button>
-          <button class="hover:bg-primary hover:border-primary border border-white rounded-lg bg-transparent px-6 py-2 font-bold uppercase transition hover:text-white">
+          <button class="border border-white rounded-lg bg-transparent px-6 py-2 font-bold uppercase transition hover:border-primary hover:bg-primary hover:text-white">
             Criar
           </button>
         </div>
       </div>
 
-      <div flex flex-col items-center justify-center>
+      <div hidden flex-col items-center justify-center lg:flex>
         <img
           :src="Character3D"
           class="h-64 w-64 object-cover md:h-90 md:w-90"

@@ -3,7 +3,7 @@
 
 <template>
   <div class="mt-20 w-full flex items-center justify-between rounded-xl bg-[#101010] pa-10 container">
-    <div class="max-w-70% flex flex-col items-start">
+    <div class="max-w-full flex flex-col items-start lg:max-w-70%">
       <h1 class="text-gradient py-4 text-6xl font-bold tracking-wide">
         Vamos moldar o futuro juntos?
       </h1>
@@ -13,11 +13,11 @@
         <br><br>
         Topa construir o futuro com a gente?
       </p>
-      <button bg-primary mt-5 rounded-lg px-4 py-2 font-bold text-white>
+      <button mt-5 rounded-lg bg-primary px-4 py-2 font-bold text-white>
         > Vem ser  FRE3D!
       </button>
     </div>
-    <div class="flex grow justify-center pa-5">
+    <div class="hidden grow justify-center pa-5 lg:flex">
       <RotatingCard />
     </div>
   </div>

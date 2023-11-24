@@ -43,6 +43,8 @@ declare module 'vue-router/auto/routes' {
     '/[...all]': RouteRecordInfo<'/[...all]', '/:all(.*)', { all: ParamValue<true> }, { all: ParamValue<false> }>,
     '/auth/criar-conta': RouteRecordInfo<'/auth/criar-conta', '/auth/criar-conta', Record<never, never>, Record<never, never>>,
     '/auth/login': RouteRecordInfo<'/auth/login', '/auth/login', Record<never, never>, Record<never, never>>,
+    '/carrinho/': RouteRecordInfo<'/carrinho/', '/carrinho', Record<never, never>, Record<never, never>>,
+    '/carrinho/components/CardProductCard': RouteRecordInfo<'/carrinho/components/CardProductCard', '/carrinho/components/CardProductCard', Record<never, never>, Record<never, never>>,
     '/components/CreatorCard': RouteRecordInfo<'/components/CreatorCard', '/components/CreatorCard', Record<never, never>, Record<never, never>>,
     '/components/HomeBanner': RouteRecordInfo<'/components/HomeBanner', '/components/HomeBanner', Record<never, never>, Record<never, never>>,
     '/components/ProductCard': RouteRecordInfo<'/components/ProductCard', '/components/ProductCard', Record<never, never>, Record<never, never>>,

@@ -3,11 +3,14 @@ import axios from 'axios'
 
 // @ts-expect-error this lib does not have types
 import { vue3dLoader } from 'vue-3d-loader'
+import { useCartStore } from '../../stores/cart'
+
 import { API_URL } from '../../config'
 
 const route = useRoute()
 const loadingProduct = ref(true)
 const active3D = ref(true)
+const cartStore = useCartStore()
 
 const product = ref({
   id: '',
@@ -50,12 +53,13 @@ function toggle3D() {
 }
 
 function addToCart() {
-  // notify({
-  //   type: 'success',
-  //   title: 'app.locale-update.title',
-  //   text: 'app.locale-update.text',
-  //   group: 'notifications',
-  // }, 8000)
+  cartStore.addProduct(product.value)
+  notify({
+    type: 'success',
+    title: 'Tudo certo!',
+    text: 'O produto foi adicionado ao seu carrinho =)',
+    group: 'notifications',
+  }, 8000)
 }
 
 onMounted(() => {

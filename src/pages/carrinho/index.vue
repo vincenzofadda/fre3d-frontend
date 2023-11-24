@@ -4,11 +4,17 @@ import type { Product } from '../../stores/cart'
 
 import CardProductCard from './components/CardProductCard.vue'
 
+const router = useRouter()
 const cartStore = useCartStore()
 const products = ref<Product[]>([])
 
 function getAll() {
   products.value = cartStore.getAll()
+}
+
+function finish() {
+  cartStore.clearAll()
+  router.push('/compra-finalizada')
 }
 
 onMounted(() => {
@@ -43,7 +49,7 @@ onMounted(() => {
           </div>
         </div>
 
-        <button rounded-xl bg-primary py-2>
+        <button rounded-xl bg-primary py-2 @click="finish">
           Finalizar compra
         </button>
       </div>

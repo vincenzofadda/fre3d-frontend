@@ -51,6 +51,7 @@ declare module 'vue-router/auto/routes' {
     '/components/StartSelling': RouteRecordInfo<'/components/StartSelling', '/components/StartSelling', Record<never, never>, Record<never, never>>,
     '/components/TopCreators': RouteRecordInfo<'/components/TopCreators', '/components/TopCreators', Record<never, never>, Record<never, never>>,
     '/components/TopProducts': RouteRecordInfo<'/components/TopProducts', '/components/TopProducts', Record<never, never>, Record<never, never>>,
+    '/compra-finalizada': RouteRecordInfo<'/compra-finalizada', '/compra-finalizada', Record<never, never>, Record<never, never>>,
     '/produtos/': RouteRecordInfo<'/produtos/', '/produtos', Record<never, never>, Record<never, never>>,
     '/produtos/[id]': RouteRecordInfo<'/produtos/[id]', '/produtos/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
   }

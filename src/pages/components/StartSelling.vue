@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const router = useRouter()
 </script>
 
 <template>
@@ -13,7 +14,7 @@
         <br><br>
         Topa construir o futuro com a gente?
       </p>
-      <button mt-5 rounded-lg bg-primary px-4 py-2 font-bold text-white>
+      <button mt-5 rounded-lg bg-primary px-4 py-2 font-bold text-white @click="router.push('/auth/criar-conta')">
         > Vem ser  FRE3D!
       </button>
     </div>

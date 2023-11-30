@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import axios from 'axios'
 
-// @ts-expect-error this lib does not have types
 import { vue3dLoader } from 'vue-3d-loader'
 import { useCartStore } from '../../stores/cart'
 
@@ -139,7 +138,7 @@ function onProcess(event: any) {
         <div flex flex-col>
           <h1 text-3xl>
             {{ product.name }} -
-            <span class="text-gradient mb-5 text-3xl font-bold tracking-wide text-underline">R$ 99.99</span>
+            <span class="text-gradient mb-5 text-3xl font-bold tracking-wide text-underline">R$ {{ parseFloat(product.basePrice).toFixed(2) }}</span>
           </h1>
 
           <p class="text-md mb-5 mt-1 text-[#858584]">

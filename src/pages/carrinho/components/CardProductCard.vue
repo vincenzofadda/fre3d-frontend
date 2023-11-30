@@ -30,7 +30,7 @@ function removeProduct() {
         </div>
         <span>{{ product.description }}</span>
       </div>
-      <span text-underline underline-offset-4>R$ {{ product.basePrice }}</span>
+      <span text-underline underline-offset-4>R$ {{ parseFloat(product.basePrice).toFixed(2) }}</span>
     </div>
 
     <button

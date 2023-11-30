@@ -45,7 +45,7 @@ onMounted(() => {
             :key="product.id"
             flex gap-x-2
           >
-            <span>{{ index + 1 }}. {{ product.name }} - R${{ product.quantity * parseFloat(product.basePrice) }}</span>
+            <span>{{ index + 1 }}. {{ product.name }} - R${{ (parseFloat(product.basePrice) * product.quantity).toFixed(2) }}</span>
           </div>
         </div>
 

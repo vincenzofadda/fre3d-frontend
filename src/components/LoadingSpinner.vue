@@ -2,6 +2,7 @@
 interface Props {
   color?: string
   border?: string
+  text?: string
   size?: string[]
 }
 
@@ -24,5 +25,9 @@ const props = withDefaults(defineProps<Props>(), {
       class="animate-spin border-t-transparent rounded-full border-solid shadow-md"
       :class="[props.color, props.size, props.border]"
     />
+
+    <h1 v-if="text" class="absolute left-1/2 top-1/2 transform -translate-1/2">
+      {{ text }}
+    </h1>
   </div>
 </template>

@@ -120,7 +120,12 @@ function onProcess(event: any) {
           {{ active3D ? '2D' : '3D' }}
         </button>
         <div v-if="active3D" relative h-full w-full flex flex-col items-center justify-center gap-y-5 rounded-xl bg-gray>
-          <LoadingSpinner v-if="process < 100" class="absolute top-1/2" />
+          <LoadingSpinner
+            v-if="process < 100"
+            class="absolute top-1/2"
+            :size="['w-20', 'h-20']"
+            :text="`${process}%`"
+          />
           <vue3dLoader
             :file-path="product.modelUrl"
             :camera-position="{ x: 0, y: -400, z: 0 }"
@@ -141,7 +146,7 @@ function onProcess(event: any) {
             <span class="text-gradient mb-5 text-3xl font-bold tracking-wide text-underline">R$ {{ parseFloat(product.basePrice).toFixed(2) }}</span>
           </h1>
 
-          <p class="text-md mb-5 mt-1 text-[#858584]">
+          <p class="text-md mb-5 mt-4 text-[#858584]">
             Criado em {{ formattedDate }}
           </p>
 
